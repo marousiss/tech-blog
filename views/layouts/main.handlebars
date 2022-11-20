@@ -13,10 +13,12 @@
   <div class="container-fluid">
     <header>
       <nav>
-        <a href="#">Home</a>
+        <a href="/">Home</a>
         <a href="#">Dashboard</a>
-        <a href="#">Login</a>
+        <a href="/login">Login</a>
+        <button class="no-button" id="logout">logout</button>
       </nav>
+      
     </header>
     <main>
       {{{body}}}
@@ -25,6 +27,8 @@
 
     </footer>
   </div>
-
+  {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 </html>
