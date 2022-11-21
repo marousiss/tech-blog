@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row post">
+    <div class="title">
+      <h5>{{post.title}}</h5>
+      <h6>Posted by {{post.user.name}} on {{format_date post.date_created}}</h6>
+    </div>
+    <p>{{post.content}}</p>
+  </div>
+  <div class="row comment">
+    <form class="comment-form">
+      <div>
+        <label for="comment">Comment</label>
+      </div>
+      <div>
+        <textarea name="comment" id="comment"></textarea>
+      </div>
+      <div>  
+        <button class="btn" type="submit" id="comment-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

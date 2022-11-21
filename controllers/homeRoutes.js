@@ -31,7 +31,9 @@ router.get('/post/:id', async (req, res) => {
         },
       ],
     });
-    res.status(200).json(postData);
+    const post = postData.get({ plain: true });
+    res.render("post", { post });
+    //res.status(200).json(postData);
   } catch (err) {
     res.status(500).json(err);
   }
