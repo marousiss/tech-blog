@@ -1,0 +1,17 @@
+
+  {{#each posts as |post|}}
+    <a href="#">
+      <div class="row post">
+        <div class="title">
+          <h5>{{post.title}}</h5>
+          <h6>Posted by {{post.user_name}} on {{format_date post.date_created}}</h6>
+        </div>
+        <p>{{post.content}}</p>
+      </div>
+    </a>
+  {{/each}}
+
+  <div class="row center">
+      <button class="dashboard-btn" id="add-post-btn">Add Post</button>
+  </div>
+

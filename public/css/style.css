@@ -1,5 +1,5 @@
 header {
-  height: 100px;
+  height: 125px;
   background-color: #333;
   
 }
@@ -37,6 +37,65 @@ a:hover {
   text-decoration: none;
 }
 
+form {
+  width: 100%;
+}
+
+form .form-group {
+  display: block;
+  width: 100%;
+  margin: 0.625rem 0;
+}
+
+form .form-input,
+form .form-textarea {
+  display: block;
+  width: 100%;
+}
+
+.center {
+  margin: auto;
+  width: 80%;
+}
+
+.sign-in-link a {
+  color: black;
+}
+
+.sign-in {
+  width: 80%;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.sign-up {
+  width: 100%;
+  background-color: darkgray;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+}
+
+.login-btn {
+  border: 1px solid black;
+  width: 100%;
+  height: 50px;
+  background-color: darkgray;
+
+}
+
+.header-info {
+  color: black;
+  background-color: lightgray;
+  width: 200px;
+  height: 50px;
+  padding: 5px;
+  margin-left: 20px;
+  border-radius: 10px;
+}
+
 .title {
   background-color: #333;
   color: white;
@@ -56,6 +115,14 @@ a:hover {
   margin-left: 50px;
   margin-right: 50px;
   padding: 10px;
+}
+
+.dashboard-btn {
+  border: 1px solid black;
+  width: 100%;
+  height: 50px;
+  background-color: darkgray;
+  margin-top: 10px;
 }
 
 .no-button {
@@ -82,7 +149,7 @@ a:hover {
   height: 100px;
 }
 
-#comment-btn {
+#submit-btn {
   border: 1px solid black;
   width: 100%;
   height: 50px;

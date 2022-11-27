@@ -1,3 +1,4 @@
+
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -6,16 +7,16 @@ const loginFormHandler = async (event) => {
   const password = document.querySelector("#password-login").value.trim();
 
   if (!name) {
-    alert("Please enter username");
+    alert("please enter username");
   }
 
   if (!password) {
     alert("please enter password");
   }
 
+  //Create new user
   if (name && password) {
-    // Send a POST request to the API endpoint
-    const response = await fetch("/api/users/login", {
+    const response = await fetch("/api/users", {
       method: "POST",
       body: JSON.stringify({ name, password }),
       headers: { "Content-Type": "application/json" },
@@ -23,17 +24,19 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       // If successful, redirect the browser to the home page
       document.location.replace("/");
-      //document.location.reload();
     } else {
-      alert("Incorrect user or password. Please try again!");
-      alert(response.statusText);
+      alert("User already exists. Login instead.");
+      //alert(response.statusText);
     }
-  
   }
+
 
 }
 
 
+
+
+
 document
-  .querySelector(".login-form")
+  .querySelector(".signUp-form")
   .addEventListener("submit", loginFormHandler);

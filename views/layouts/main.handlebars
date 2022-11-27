@@ -14,11 +14,17 @@
     <header>
       <nav>
         <a href="/">Home</a>
-        <a href="#">Dashboard</a>
-        <a href="/login">Login</a>
-        <button class="no-button" id="logout">logout</button>
+        {{#if logged_in}}
+          <a href="/dashboard/{{user_id}}">Dashboard</a>
+          <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/dashboard">Dashboard</a>
+        <a href="/signUp">Login</a>
+        {{/if}}
       </nav>
-      
+      <div class="header-info">
+        <h3>The Tech Blog</h3>
+      </div>
     </header>
     <main>
       {{{body}}}
