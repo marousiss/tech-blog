@@ -1,17 +1,18 @@
 
   {{#each posts as |post|}}
-    <a href="#">
+    <a href="/updatepost/{{post.id}}">
       <div class="row post">
         <div class="title">
           <h5>{{post.title}}</h5>
-          <h6>Posted by {{post.user_name}} on {{format_date post.date_created}}</h6>
+          <h6>Posted by: {{post.user.name}} on {{format_date post.date_created}}</h6>
         </div>
         <p>{{post.content}}</p>
       </div>
     </a>
   {{/each}}
 
-  <div class="row center">
-      <button class="dashboard-btn" id="add-post-btn">Add Post</button>
+
+  <div class="row center add-post-link">
+      <a href="/addnewpost">Add post</a>
   </div>
 

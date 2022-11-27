@@ -23,7 +23,6 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       // If successful, redirect the browser to the home page
       document.location.replace("/");
-      //document.location.reload();
     } else {
       alert("Incorrect user or password. Please try again!");
       alert(response.statusText);

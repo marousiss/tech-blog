@@ -12,7 +12,6 @@ const commentFormHandler = async (event) => {
   content =`${comment}\n - created by:  ${user_name} on ${current_date.toLocaleDateString()}`;
   
   if (content && post_id) {
-    //const content = await getComment(comment);
     const response = await fetch("/api/comments", {
       method: "POST",
       body: JSON.stringify({ content, post_id }),
@@ -20,10 +19,8 @@ const commentFormHandler = async (event) => {
     });
     if (response.ok) {
       // If successful, stay in the same page
-      alert("cimment successfully created");
-      //document.querySelector("#comment").value = content + " " + Date();
+      alert("comment successfully created");
       document.location.reload();
-
     } else {
       alert("failed to post comment")
       alert(response.statusText);

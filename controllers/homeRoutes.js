@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-//Get posts by id
+//Get post and comments for the post
 router.get('/post/:id', withAuth, async (req, res) => {
   try {
     postData = await Post.findByPk(req.params.id, {
@@ -59,7 +59,7 @@ router.get('/dashboard', (req, res) => {
   if (!req.session.logged_in) {
     res.render("login"); 
   }
-  res.render('/');
+  res.render('homepage');
 });
 
 
@@ -89,21 +89,55 @@ router.get('/dashboard/:user_id', withAuth, async (req, res) => {
   }
 });
 
-// Sign up
+//Route to add new post page
+router.get("/addnewpost", withAuth, (req, res) => {
+  res.render(
+    "newpost", {logged_in: req.session.logged_in,
+    user_id: req.session.user_id,
+    user_name: req.session.user_name});
+});
+
+//Route to update post page
+router.get("/updatepost/:id", withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attribute: ["name"],
+        },
+      ],
+    });
+    const post = postData.get({ plain: true });
+    res.render("updatepost", {post,
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
+      user_name: req.session.user_name,
+    });
+
+  } catch (err) {
+    res.status(500).res(err);
+  }
+});
+
+// Route to sign up page
 router.get("/signUp", (req, res) => {
   // If the user is already logged in, redirect the request to home page
   if (req.session.logged_in) {
-    res.redirect("/");
-    return;
+    res.render('homepage');
+    //res.redirect("/");
+    //return;
   }
   res.render("signUp");
 });
 
+//Route to login page
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to home page
   if (req.session.logged_in) {
-    res.redirect("/");
-    return;
+    //res.redirect("/");
+    //return;
+    res.render('homepage');
   }
   res.render("login");
 });
