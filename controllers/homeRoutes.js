@@ -65,7 +65,7 @@ router.get('/dashboard', (req, res) => {
 //Dashboard - Get all posts for the current user
 router.get('/dashboard/:user_id', withAuth, async (req, res) => {
   try {
-    const userPostData = await Post.findAll(
+    const PostData = await Post.findAll(
       {
         where: {
           user_id: req.params.user_id
@@ -80,7 +80,8 @@ router.get('/dashboard/:user_id', withAuth, async (req, res) => {
         ]
       }
     );
-    const posts = userPostData.map((userPost) => userPost.get({ plain: true }));
+    const posts = PostData.map((post) => post.get({ plain: true }));
+    
     res.render("dashboard", { posts, logged_in: req.session.logged_in, user_id: req.session.user_id, user_name: req.session.user_name });
     //res.status(200).json(userPostData);
   } catch (err) {
