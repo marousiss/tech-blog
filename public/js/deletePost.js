@@ -2,7 +2,6 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
     const user_id = event.target.getAttribute("data-user_id");
-    alert("id: " + id + " user id: " + user_id);
 
     //Delete post
     const response = await fetch(`/api/posts/${id}`, {

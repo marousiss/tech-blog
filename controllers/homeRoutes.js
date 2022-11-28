@@ -96,7 +96,7 @@ router.get("/addnewpost", withAuth, (req, res) => {
     user_name: req.session.user_name});
 });
 
-//Route to update post page
+//Route to maintain post page
 router.get("/maintainpost/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -115,9 +115,22 @@ router.get("/maintainpost/:id", withAuth, async (req, res) => {
     });
 
   } catch (err) {
-    res.status(500).res(err);
+    res.status(500).json(err);
   }
 });
+
+//Route to update a post page
+router.get("/updatepost/:id", withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id);
+    const post = postData.get({ plain: true });
+    res.render("updatepost", { post, logged_in: req.session.logged_in, user_id: req.session.user_id });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 // Route to sign up page
 router.get("/signUp", (req, res) => {

@@ -1,0 +1,17 @@
+<div class="row center">
+  <form class="form update-post-form">
+    <div class="form-group">
+      <label for="post-title">post title</label>
+      <input class="form-input" type="text" id="post-title" data-id="{{post.id}}" data-user_id="{{user_id}}" value="{{post.title}}"/>
+    </div>
+    <div class="form-group">
+      <label for="post-content">post content</label>
+      <textarea name="post-content" class="form-textarea" id="post-content">{{post.content}}</textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="dashboard-btn" id="add-post-btn">Update post</button>
+    </div>
+  </form>
+</div>
+
+<script src="/js/updatePost.js"></script>

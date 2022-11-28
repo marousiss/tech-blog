@@ -159,8 +159,10 @@ form .form-textarea {
 }
 
 .update-post-link a {
+  color: black;
   width: 100%;
   text-align: center;
+  padding: 5px;
 }
 
 .no-button {
