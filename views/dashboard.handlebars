@@ -1,6 +1,6 @@
 
   {{#each posts as |post|}}
-    <a href="/updatepost/{{post.id}}">
+    <a href="/maintainpost/{{post.id}}">
       <div class="row post">
         <div class="title">
           <h5>{{post.title}}</h5>
@@ -10,7 +10,6 @@
       </div>
     </a>
   {{/each}}
-
 
   <div class="row center add-post-link">
       <a href="/addnewpost">Add post</a>

@@ -15,8 +15,7 @@ router.get('/', async (req, res) => {
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
-    res.render('homepage', {posts, logged_in: req.session.logged_in, user_id: req.session.user_id});
-    //res.status(200).json(postData);
+    res.render('homepage', {posts, logged_in: req.session.logged_in, user_id: req.session.user_id, user_name: req.session.user_name});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -98,7 +97,7 @@ router.get("/addnewpost", withAuth, (req, res) => {
 });
 
 //Route to update post page
-router.get("/updatepost/:id", withAuth, async (req, res) => {
+router.get("/maintainpost/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
@@ -109,7 +108,7 @@ router.get("/updatepost/:id", withAuth, async (req, res) => {
       ],
     });
     const post = postData.get({ plain: true });
-    res.render("updatepost", {post,
+    res.render("maintainpost", {post,
       logged_in: req.session.logged_in,
       user_id: req.session.user_id,
       user_name: req.session.user_name,
@@ -125,8 +124,6 @@ router.get("/signUp", (req, res) => {
   // If the user is already logged in, redirect the request to home page
   if (req.session.logged_in) {
     res.render('homepage');
-    //res.redirect("/");
-    //return;
   }
   res.render("signUp");
 });
@@ -135,8 +132,6 @@ router.get("/signUp", (req, res) => {
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to home page
   if (req.session.logged_in) {
-    //res.redirect("/");
-    //return;
     res.render('homepage');
   }
   res.render("login");

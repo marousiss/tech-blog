@@ -1,5 +1,5 @@
 
-const loginFormHandler = async (event) => {
+const signUpFormHandler = async (event) => {
   event.preventDefault();
 
   // Collect values from the login form
@@ -26,17 +26,11 @@ const loginFormHandler = async (event) => {
       document.location.replace("/");
     } else {
       alert("User already exists. Login instead.");
-      //alert(response.statusText);
+      alert(response.statusText);
     }
   }
-
-
 }
-
-
-
-
 
 document
   .querySelector(".signUp-form")
-  .addEventListener("submit", loginFormHandler);
+  .addEventListener("submit", signUpFormHandler);

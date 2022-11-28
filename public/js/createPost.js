@@ -4,8 +4,7 @@ const addNewPostFormHandler = async (event) => {
   // Collect values from the new post form
   const title = document.querySelector("#post-title").value.trim();
   const content = document.querySelector("#post-content").value.trim();
-  const user_id = parseInt(document.querySelector("#post-title").getAttribute("data-user_id"));
-  
+  const user_id = document.querySelector("#post-title").getAttribute("data-user_id");
   
   if (title && content && user_id) {
     const response = await fetch("/api/posts", {
@@ -22,8 +21,7 @@ const addNewPostFormHandler = async (event) => {
     }
   }
 
-}
-
+};
 
 
 document

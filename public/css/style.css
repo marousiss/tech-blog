@@ -125,6 +125,14 @@ form .form-textarea {
   margin-top: 10px;
 }
 
+.delete-btn {
+  border: 1px solid black;
+  width: 80%;
+  height: 50px;
+  background-color: darkgray;
+  margin-top: 10px;
+}
+
 .add-post-link {
   color: black;
   border: 1px solid black;
@@ -140,6 +148,20 @@ form .form-textarea {
   text-align: center;
 }
 
+.update-post-link {
+  color: black;
+  border: 1px solid black;
+  width: 80%;
+  height: 50px;
+  background-color: darkgray;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.update-post-link a {
+  width: 100%;
+  text-align: center;
+}
 
 .no-button {
   background: none;

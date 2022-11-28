@@ -1,0 +1,19 @@
+<div class="row post">
+  <div class="title">
+    <h5>{{post.title}}</h5>
+    <h6>Posted by {{post.user.name}} on {{format_date post.date_created}}</h6>
+  </div>
+  <div>
+    <p>{{post.content}}</p>
+  </div>
+</div>
+<!--
+<div class="row center update-post-link">
+  <a href="/updatepost/{{post.id}}">Update post</a>
+</div>
+-->
+<div class="center">
+  <button type="button" id="delete-post" class="delete-btn" data-id="{{post.id}}" data-user_id="{{user_id}}">Delete post</button>
+</div>
+
+<script src="/js/deletePost.js"></script>
