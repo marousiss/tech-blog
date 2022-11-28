@@ -4,6 +4,8 @@
 
 This application is a tech blog site where developers can publish their blog posts and comment on other developer's posts as well.
 
+Heroku URL: https://stormy-badlands-63717.herokuapp.com/
+
 
 ## Installation
 
