@@ -22,7 +22,7 @@ const commentFormHandler = async (event) => {
       alert("comment successfully created");
       document.location.reload();
     } else {
-      alert("failed to post comment")
+      alert("failed to post comment");
       alert(response.statusText);
     }
   }
